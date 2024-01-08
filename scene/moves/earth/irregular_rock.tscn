@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://b3t6gtgfdun6h"]
+
+[ext_resource type="Texture2D" uid="uid://c1nqgd0jcuift" path="res://assets/texture/moves/EARTH/Irregular rock.png" id="1_pvqfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8rt2"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scgse"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im0hp"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3t7f"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyrhx"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re04f"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bnm6"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53crk"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3raq"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mogc3"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bia8t"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdnn7"]
+atlas = ExtResource("1_pvqfh")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6qt2"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_k8rt2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_scgse")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_im0hp")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_u3t7f")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_lyrhx")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_re04f")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_7bnm6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_53crk")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_j3raq")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_mogc3")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bia8t")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vdnn7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="irregular_rock" type="AnimatedSprite2D"]
+position = Vector2(18, 0)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_p6qt2")
+autoplay = "default"
+frame = 11
+frame_progress = 1.0

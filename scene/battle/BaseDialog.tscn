@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://bawsb8id7ept4"]
+
+[ext_resource type="Script" path="res://script/battle/BaseDialog.gd" id="1_ab3bh"]
+[ext_resource type="Texture2D" uid="uid://dokdrfxtwvvk3" path="res://assets/texture/ui/menuframe.png" id="2_beur4"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="3_jklbe"]
+[ext_resource type="Texture2D" uid="uid://dkyfr02mvq6kw" path="res://assets/texture/ui/arrChoice.png" id="4_ma2ld"]
+[ext_resource type="AudioStream" uid="uid://7e7yunqo1a50" path="res://assets/sounds/Newblip.MP3" id="5_hy1pr"]
+
+[node name="BaseDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ab3bh")
+
+[node name="BattleDialog" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 172.0
+texture = ExtResource("2_beur4")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Attack" type="Label" parent="BattleDialog"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 34.0
+offset_right = 262.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jklbe")
+theme_override_font_sizes/font_size = 32
+text = "Attack"
+uppercase = true
+
+[node name="Escape" type="Label" parent="BattleDialog"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 99.0
+offset_right = 284.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jklbe")
+theme_override_font_sizes/font_size = 32
+text = "Escape"
+uppercase = true
+
+[node name="Arrow" type="TextureRect" parent="BattleDialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.077
+anchor_bottom = 0.195
+offset_left = 30.0
+offset_top = 35.0
+offset_right = 37.121
+offset_bottom = 42.045
+texture = ExtResource("4_ma2ld")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 717.0
+offset_bottom = 172.0
+texture = ExtResource("2_beur4")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="RichTextLabel" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 203.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jklbe")
+theme_override_font_sizes/font_size = 32
+text = "What should you do ?"
+
+[node name="Blip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hy1pr")

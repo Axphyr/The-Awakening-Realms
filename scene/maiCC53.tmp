@@ -1,0 +1,368 @@
+[gd_scene load_steps=24 format=3 uid="uid://ditlmey6bm1ee"]
+
+[ext_resource type="Script" path="res://script/main.gd" id="1_4wodg"]
+[ext_resource type="Texture2D" uid="uid://dcsd5eftcxm1a" path="res://assets/texture/Clouds 5/1.png" id="1_qlkml"]
+[ext_resource type="Texture2D" uid="uid://bnamyyoielins" path="res://assets/texture/Clouds 5/2.png" id="2_q873l"]
+[ext_resource type="Script" path="res://script/mainCamera.gd" id="3_ct4ie"]
+[ext_resource type="Texture2D" uid="uid://klecj5wpihuy" path="res://assets/texture/Clouds 5/3.png" id="3_u0jd4"]
+[ext_resource type="Texture2D" uid="uid://nwii7flbjhru" path="res://assets/texture/Clouds 5/stones&grass.png" id="4_3poeu"]
+[ext_resource type="PackedScene" uid="uid://c6n4mjp6vxb1h" path="res://scene/entity/player.tscn" id="6_8qta2"]
+[ext_resource type="Texture2D" uid="uid://cdgh05sxckyql" path="res://assets/texture/entity/sprite_character.png" id="6_sar2u"]
+[ext_resource type="Script" path="res://script/mainCharacter.gd" id="7_u5qxc"]
+[ext_resource type="Texture2D" uid="uid://c0nvl6ep1ul7e" path="res://assets/texture/ui/cooltext447313219024398.png" id="8_efuws"]
+[ext_resource type="Texture2D" uid="uid://41otmtd2xqud" path="res://assets/texture/ui/button.png" id="9_5s767"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="9_xdpll"]
+
+[sub_resource type="Theme" id="Theme_o5xfx"]
+default_font = ExtResource("9_xdpll")
+default_font_size = 54
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2mof"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(64, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueilv"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(128, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t4uh"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(192, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b1vq"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(256, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lm5q"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(320, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1nh2"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(384, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp4od"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(448, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq7fw"]
+atlas = ExtResource("6_sar2u")
+region = Rect2(512, 704, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6j1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2mof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueilv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t4uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b1vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lm5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1nh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp4od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq7fw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Theme" id="Theme_t4t8m"]
+default_font = ExtResource("9_xdpll")
+default_font_size = 23
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_4wodg")
+player_scene = ExtResource("6_8qta2")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576.889, 323.5)
+scale = Vector2(2.00309, 2.00309)
+texture = ExtResource("1_qlkml")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(575.5, 248)
+scale = Vector2(1.98785, 1.51235)
+texture = ExtResource("2_q873l")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(500, 242)
+scale = Vector2(1.74479, 1.46914)
+texture = ExtResource("3_u0jd4")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(10, 10)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="Stones&grass" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(603, 525)
+scale = Vector2(0.626158, 0.626158)
+texture = ExtResource("4_3poeu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("3_ct4ie")
+
+[node name="MultiplayerTitle" type="Label" parent="Camera2D"]
+visible = false
+offset_left = 374.0
+offset_top = 76.0
+offset_right = 722.0
+offset_bottom = 163.0
+theme = SubResource("Theme_o5xfx")
+text = "Multiplayer"
+
+[node name="Cooltext447313219024398" type="Sprite2D" parent="Camera2D"]
+position = Vector2(831.018, 107.14)
+scale = Vector2(0.794603, 1.00847)
+texture = ExtResource("8_efuws")
+
+[node name="LineEdit" type="LineEdit" parent="Camera2D"]
+offset_left = 441.0
+offset_top = 418.0
+offset_right = 709.0
+offset_bottom = 482.0
+placeholder_text = "Nom de votre héro..."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(371.508, 510)
+scale = Vector2(3.6875, 3.6875)
+sprite_frames = SubResource("SpriteFrames_c6j1l")
+frame_progress = 0.976621
+script = ExtResource("7_u5qxc")
+
+[node name="Start" type="CanvasLayer" parent="."]
+
+[node name="ButtonStart" type="Button" parent="Start"]
+offset_left = 863.0
+offset_top = 181.0
+offset_right = 1090.0
+offset_bottom = 237.0
+theme = SubResource("Theme_t4t8m")
+text = "START
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Start"]
+z_index = -1
+offset_left = 863.0
+offset_top = 181.0
+offset_right = 1090.0
+offset_bottom = 237.0
+texture = ExtResource("9_5s767")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+
+[node name="Multiplayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonMultiplayer" type="Button" parent="Multiplayer"]
+offset_left = 866.0
+offset_top = 260.0
+offset_right = 1093.0
+offset_bottom = 316.0
+theme = SubResource("Theme_t4t8m")
+text = "MULTIPLAYER
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Multiplayer"]
+z_index = -1
+offset_left = 865.0
+offset_top = 259.0
+offset_right = 1092.0
+offset_bottom = 315.0
+texture = ExtResource("9_5s767")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="CanvasLayer" parent="."]
+
+[node name="ButtonQuit" type="Button" parent="Quit"]
+offset_left = 866.0
+offset_top = 333.0
+offset_right = 1093.0
+offset_bottom = 389.0
+theme = SubResource("Theme_t4t8m")
+text = "QUIT
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Quit"]
+z_index = -1
+offset_left = 865.0
+offset_top = 333.0
+offset_right = 1092.0
+offset_bottom = 389.0
+texture = ExtResource("9_5s767")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+
+[node name="Host" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ButtonHost" type="Button" parent="Host"]
+offset_left = 434.0
+offset_top = 206.0
+offset_right = 661.0
+offset_bottom = 262.0
+theme = SubResource("Theme_t4t8m")
+text = "HOST
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Host"]
+z_index = -1
+offset_left = 433.0
+offset_top = 205.0
+offset_right = 660.0
+offset_bottom = 261.0
+texture = ExtResource("9_5s767")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Join" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ButtonJoin" type="Button" parent="Join"]
+offset_left = 434.0
+offset_top = 279.0
+offset_right = 661.0
+offset_bottom = 335.0
+theme = SubResource("Theme_t4t8m")
+text = "JOIN
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Join"]
+z_index = -1
+offset_left = 433.0
+offset_top = 279.0
+offset_right = 660.0
+offset_bottom = 335.0
+texture = ExtResource("9_5s767")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Return" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ButtonReturn" type="Button" parent="Return"]
+offset_left = 434.0
+offset_top = 351.0
+offset_right = 661.0
+offset_bottom = 407.0
+theme = SubResource("Theme_t4t8m")
+text = "RETURN
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Return"]
+z_index = -1
+offset_left = 433.0
+offset_top = 351.0
+offset_right = 660.0
+offset_bottom = 407.0
+texture = ExtResource("9_5s767")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scene/entity/player.tscn")
+spawn_path = NodePath("..")
+
+[node name="StartMulti" type="CanvasLayer" parent="."]
+offset = Vector2(0, 70.825)
+transform = Transform2D(1, 0, 0, 1, 0, 70.825)
+
+[node name="ButtonStart" type="Button" parent="StartMulti"]
+offset_left = 460.0
+offset_top = 434.175
+offset_right = 687.0
+offset_bottom = 490.175
+theme = SubResource("Theme_t4t8m")
+text = "START MULTI
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StartMulti"]
+z_index = -1
+offset_left = 459.0
+offset_top = 434.175
+offset_right = 686.0
+offset_bottom = 490.175
+texture = ExtResource("9_5s767")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Start/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="Multiplayer/ButtonMultiplayer" to="." method="_on_button_multiplayer_pressed"]
+[connection signal="pressed" from="Quit/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Host/ButtonHost" to="." method="_on_button_host_pressed"]
+[connection signal="pressed" from="Join/ButtonJoin" to="." method="_on_button_join_pressed"]
+[connection signal="pressed" from="Return/ButtonReturn" to="." method="_on_button_return_pressed"]
+[connection signal="pressed" from="StartMulti/ButtonStart" to="." method="_on_button_start_multi_pressed"]

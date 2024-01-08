@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlyg7i1e53k2x"]
+
+[ext_resource type="Script" path="res://script/entity/NPC.gd" id="1_e74vf"]
+[ext_resource type="PackedScene" uid="uid://bexeskfvvnb6x" path="res://scene/InteractionArea.tscn" id="3_067r0"]
+[ext_resource type="Script" path="res://scene/InteractionArea.gd" id="3_sfh3v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7d1u"]
+radius = 104.043
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_e74vf")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_067r0")]
+input_pickable = false
+script = ExtResource("3_sfh3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_p7d1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

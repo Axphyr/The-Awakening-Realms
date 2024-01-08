@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0wl3bwhiwn3f"]
+
+[ext_resource type="Script" path="res://script/ui/TextBox.gd" id="1_58jy4"]
+[ext_resource type="Texture2D" uid="uid://d25t6rujyskgj" path="res://assets/texture/ui/01.png" id="2_phvr6"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="3_loksn"]
+
+[node name="TextBox" type="MarginContainer"]
+z_index = 20
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_58jy4")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_phvr6")
+region_rect = Rect2(0, 0, 48, 20)
+patch_margin_left = 2
+patch_margin_top = 8
+patch_margin_right = 2
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 7
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_loksn")
+theme_override_font_sizes/font_size = 12
+text = "Test"
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpw1s1xvcg8dp"]
+
+[ext_resource type="Texture2D" uid="uid://brxgphudlccsa" path="res://assets/texture/tilemap/plant_texture.png" id="1_lj8mv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acp6g"]
+atlas = ExtResource("1_lj8mv")
+region = Rect2(72, 492, 16, 12)
+
+[sub_resource type="Curve" id="Curve_65edt"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.00510205, 261.474), 0.0, 0.0, 0, 0, Vector2(1, -231.158), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_h2twj"]
+max_value = 100.0
+_data = [Vector2(0, 73.6842), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 4
+texture = SubResource("AtlasTexture_acp6g")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 5)
+gravity = Vector2(100, 150)
+initial_velocity_max = 2.0
+angular_velocity_max = 1.0
+angular_velocity_curve = SubResource("Curve_65edt")
+radial_accel_max = 2.0
+damping_max = 2.0
+damping_curve = SubResource("Curve_h2twj")

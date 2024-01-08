@@ -1,0 +1,583 @@
+[gd_scene load_steps=16 format=3 uid="uid://bd3yf8mknyiln"]
+
+[ext_resource type="Script" path="res://script/battle/MultiplayerBattleScene.gd" id="1_8bcl1"]
+[ext_resource type="PackedScene" uid="uid://bawsb8id7ept4" path="res://scene/battle/BaseDialog.tscn" id="2_y72cu"]
+[ext_resource type="Texture2D" uid="uid://dst8mxgpqge6y" path="res://assets/texture/base.png" id="3_2dygk"]
+[ext_resource type="Texture2D" uid="uid://buufbxggrhsvv" path="res://assets/texture/ui/square_1.png" id="4_7igj3"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="5_2j8vh"]
+[ext_resource type="Texture2D" uid="uid://rbtg02d3rfug" path="res://assets/texture/ui/health_bar.png" id="6_l0dm8"]
+[ext_resource type="Texture2D" uid="uid://cqyp5aksqgvlr" path="res://assets/texture/ui/mana_bar.png" id="7_miv8s"]
+[ext_resource type="Texture2D" uid="uid://b126xjdf74mep" path="res://assets/texture/ui/square_2.png" id="8_jfoeh"]
+[ext_resource type="AudioStream" uid="uid://cu3hgj5a4t3" path="res://assets/musics/battle.mp3" id="9_b5pmt"]
+[ext_resource type="AudioStream" uid="uid://bya35o240dy7g" path="res://assets/sounds/death.mp3" id="10_llstj"]
+[ext_resource type="Texture2D" uid="uid://dokdrfxtwvvk3" path="res://assets/texture/ui/menuframe.png" id="11_ee21d"]
+[ext_resource type="Texture2D" uid="uid://cjhycxn5h2dlj" path="res://assets/texture/ui/white_circle.png" id="12_66i5f"]
+[ext_resource type="PackedScene" uid="uid://dkfvt0cn1ivj7" path="res://scene/battle/EscapeBattle.tscn" id="12_cc7h6"]
+[ext_resource type="PackedScene" uid="uid://6g1fq3peary" path="res://scene/entity/BattlePlayer.tscn" id="13_ll466"]
+
+[sub_resource type="Theme" id="Theme_6hwfq"]
+default_font = ExtResource("5_2j8vh")
+default_font_size = 23
+
+[node name="MultiplayerBattleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8bcl1")
+
+[node name="Fond" type="ColorRect" parent="."]
+z_index = -4096
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.858824, 0.831373, 0.921569, 1)
+
+[node name="Player" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 317.0
+offset_right = 288.0
+offset_bottom = 352.0
+expand_mode = 1
+
+[node name="BaseDialog" parent="." instance=ExtResource("2_y72cu")]
+visible = false
+layout_mode = 1
+offset_top = 475.0
+offset_bottom = 475.0
+
+[node name="BaseEnemy" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 152.0
+offset_right = 1055.0
+offset_bottom = 331.0
+texture = ExtResource("3_2dygk")
+
+[node name="Base" type="TextureRect" parent="."]
+z_index = -4096
+layout_mode = 0
+offset_left = 6.0
+offset_top = 309.0
+offset_right = 519.0
+offset_bottom = 582.0
+texture = ExtResource("3_2dygk")
+
+[node name="PlayerInfoBox" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = 570.0
+offset_top = 312.0
+offset_right = 1098.0
+offset_bottom = 451.0
+texture = ExtResource("4_7igj3")
+
+[node name="Player_name" type="Label" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 9.0
+offset_right = 334.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "[Player_name]"
+uppercase = true
+
+[node name="Player_lvl" type="Label" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 8.0
+offset_right = 653.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "[Player_lvl]"
+
+[node name="black_background" type="ColorRect" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 54.0
+offset_right = 418.0
+offset_bottom = 77.0
+color = Color(0, 0, 0, 1)
+
+[node name="black_background2" type="ColorRect" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 99.0
+offset_right = 418.0
+offset_bottom = 120.0
+color = Color(0, 0, 0, 1)
+
+[node name="health_bar" type="TextureProgressBar" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 54.0
+offset_right = 418.0
+offset_bottom = 77.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("6_l0dm8")
+
+[node name="PV" type="Label" parent="PlayerInfoBox/health_bar"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = -6.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "PV:"
+uppercase = true
+
+[node name="PV_Amount" type="Label" parent="PlayerInfoBox/health_bar"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 303.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="mana_bar" type="TextureProgressBar" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 99.0
+offset_right = 418.0
+offset_bottom = 120.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("7_miv8s")
+
+[node name="MANA" type="Label" parent="PlayerInfoBox/mana_bar"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "MN:"
+uppercase = true
+
+[node name="MANA_Amount" type="Label" parent="PlayerInfoBox/mana_bar"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = -3.0
+offset_right = 304.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="EnemyInfoBox" type="TextureRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_left = 49.0
+offset_top = 62.0
+offset_right = 574.0
+offset_bottom = 200.0
+texture = ExtResource("8_jfoeh")
+
+[node name="Player_name" type="Label" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 11.0
+offset_right = 215.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "[Player_name]"
+uppercase = true
+
+[node name="Player_lvl" type="Label" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 10.0
+offset_right = 534.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "[Player_lvl]"
+
+[node name="black_background" type="ColorRect" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 56.0
+offset_right = 299.0
+offset_bottom = 79.0
+color = Color(0, 0, 0, 1)
+
+[node name="black_background2" type="ColorRect" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 101.0
+offset_right = 299.0
+offset_bottom = 122.0
+color = Color(0, 0, 0, 1)
+
+[node name="health_bar" type="TextureProgressBar" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 56.0
+offset_right = 299.0
+offset_bottom = 79.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("6_l0dm8")
+
+[node name="PV" type="Label" parent="EnemyInfoBox/health_bar"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = -6.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "PV:"
+uppercase = true
+
+[node name="PV_Amount" type="Label" parent="EnemyInfoBox/health_bar"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 303.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="mana_bar" type="TextureProgressBar" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 101.0
+offset_right = 299.0
+offset_bottom = 122.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("7_miv8s")
+
+[node name="MANA" type="Label" parent="EnemyInfoBox/mana_bar"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "MN:"
+uppercase = true
+
+[node name="MANA_Amount" type="Label" parent="EnemyInfoBox/mana_bar"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = -3.0
+offset_right = 304.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_b5pmt")
+volume_db = -11.255
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_llstj")
+
+[node name="enemy_chosing" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 478.0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("11_ee21d")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="chosing_dialog" type="Label" parent="enemy_chosing"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 203.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 32
+text = "What should you do ?"
+
+[node name="enemy_choose" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 478.0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("11_ee21d")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="choose_dialog" type="Label" parent="enemy_choose"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 203.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 32
+text = "[Monster_name] used [Move]"
+
+[node name="EscapeBattle" parent="." instance=ExtResource("12_cc7h6")]
+visible = false
+layout_mode = 1
+
+[node name="Ready" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+
+[node name="Initialiser" type="ColorRect" parent="Ready"]
+layout_mode = 0
+offset_left = -320.0
+offset_top = 382.0
+offset_right = 722.0
+offset_bottom = 1024.0
+rotation = -0.872665
+color = Color(1, 0, 0, 0.827451)
+
+[node name="CenterName" type="Control" parent="Ready/Initialiser"]
+anchors_preset = 0
+offset_left = 495.205
+offset_top = 100.109
+offset_right = 783.205
+offset_bottom = 145.109
+rotation = 0.872665
+
+[node name="PlayerName" type="Label" parent="Ready/Initialiser/CenterName"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -22.5
+offset_right = 131.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 30
+text = "[Player_name]"
+
+[node name="BattlePlayer" parent="Ready/Initialiser" instance=ExtResource("13_ll466")]
+position = Vector2(477.472, 302.976)
+rotation = 0.872665
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ready/Initialiser"]
+layout_mode = 0
+offset_left = 296.024
+offset_top = 372.988
+offset_right = 424.024
+offset_bottom = 400.988
+rotation = 0.872665
+theme_override_fonts/normal_font = ExtResource("5_2j8vh")
+theme_override_font_sizes/normal_font_size = 20
+text = "Not Ready"
+fit_content = true
+
+[node name="Ready" type="Control" parent="Ready/Initialiser"]
+anchors_preset = 0
+offset_left = 233.12
+offset_top = 361.806
+offset_right = 460.12
+offset_bottom = 418.806
+rotation = 0.872665
+
+[node name="Accept" type="Button" parent="Ready/Initialiser/Ready"]
+z_index = 3
+layout_mode = 0
+offset_left = -1.11801
+offset_top = 0.117996
+offset_right = 225.882
+offset_bottom = 56.118
+focus_mode = 0
+theme = SubResource("Theme_6hwfq")
+text = "READY"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Ready/Initialiser/Ready"]
+z_index = 2
+layout_mode = 0
+offset_left = -0.118011
+offset_top = 1.11803
+offset_right = 226.882
+offset_bottom = 57.118
+texture = ExtResource("6_l0dm8")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+
+[node name="Enemy" type="ColorRect" parent="Ready"]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 649.0
+offset_right = 1343.0
+offset_bottom = 1307.0
+rotation = -0.872665
+color = Color(0, 0, 1, 0.827451)
+
+[node name="CenterName" type="Control" parent="Ready/Enemy"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 710.051
+offset_top = 62.1214
+offset_right = 998.051
+offset_bottom = 107.121
+rotation = 0.872665
+
+[node name="PlayerName" type="Label" parent="Ready/Enemy/CenterName"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -22.5
+offset_right = 131.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_2j8vh")
+theme_override_font_sizes/font_size = 30
+text = "[Player_name]"
+
+[node name="BattlePlayer" parent="Ready/Enemy" instance=ExtResource("13_ll466")]
+position = Vector2(692.319, 264.988)
+rotation = 0.872665
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ready/Enemy"]
+layout_mode = 0
+offset_left = 510.871
+offset_top = 335.0
+offset_right = 638.871
+offset_bottom = 363.0
+rotation = 0.872665
+theme_override_fonts/normal_font = ExtResource("5_2j8vh")
+theme_override_font_sizes/normal_font_size = 20
+text = "Not Ready"
+fit_content = true
+
+[node name="Ready" type="Control" parent="Ready/Enemy"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 447.966
+offset_top = 323.818
+offset_right = 674.966
+offset_bottom = 380.818
+rotation = 0.872665
+
+[node name="Accept" type="Button" parent="Ready/Enemy/Ready"]
+z_index = 3
+layout_mode = 0
+offset_left = -1.11801
+offset_top = 0.117996
+offset_right = 225.882
+offset_bottom = 56.118
+focus_mode = 0
+theme = SubResource("Theme_6hwfq")
+text = "READY"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Ready/Enemy/Ready"]
+z_index = 2
+layout_mode = 0
+offset_left = -0.118011
+offset_top = 1.11803
+offset_right = 226.882
+offset_bottom = 57.118
+texture = ExtResource("6_l0dm8")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+
+[node name="Versus" type="ColorRect" parent="Ready"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 648.0
+offset_right = 1149.0
+offset_bottom = 732.0
+rotation = -0.872665
+color = Color(1, 1, 1, 0.827451)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Ready"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 232.0
+offset_right = 656.0
+offset_bottom = 408.0
+texture = ExtResource("12_66i5f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ready/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -44.0
+offset_right = 60.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_2j8vh")
+theme_override_font_sizes/normal_font_size = 64
+text = "VS"
+fit_content = true
+scroll_active = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

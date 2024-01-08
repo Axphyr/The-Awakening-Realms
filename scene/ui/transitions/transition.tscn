@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://buf28rhcgeklv"]
+
+[ext_resource type="Script" path="res://script/transition.gd" id="1_lwxpi"]
+[ext_resource type="AudioStream" uid="uid://c4poic8pxhjnk" path="res://assets/sounds/transition.wav" id="2"]
+
+[node name="transition" type="Node2D"]
+script = ExtResource("1_lwxpi")
+
+[node name="square" type="ColorRect" parent="."]
+z_index = 100
+offset_left = 1152.0
+offset_top = -5.0
+offset_right = 1305.0
+offset_bottom = 137.0
+color = Color(0.113725, 0.368627, 0.482353, 1)
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+volume_db = -61.72

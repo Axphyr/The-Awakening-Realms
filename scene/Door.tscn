@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://btc62d62wm2fm"]
+
+[ext_resource type="Script" path="res://scene/Door.gd" id="1_6g0kh"]
+[ext_resource type="Texture2D" uid="uid://56si8wleu7fn" path="res://assets/texture/tilemap/home_texture.png" id="2_kvtg0"]
+[ext_resource type="PackedScene" uid="uid://bexeskfvvnb6x" path="res://scene/InteractionArea.tscn" id="3_sbnhq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j51xl"]
+atlas = ExtResource("2_kvtg0")
+region = Rect2(416, 128, 32, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo5bm"]
+size = Vector2(76, 124)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6g0kh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_j51xl")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_sbnhq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(3, 52)
+shape = SubResource("RectangleShape2D_fo5bm")

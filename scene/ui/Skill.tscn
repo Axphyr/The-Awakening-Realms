@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://bymw01ffi1gma"]
+
+[ext_resource type="Texture2D" uid="uid://c3nsk3mjyhpfu" path="res://assets/texture/ui/GUI/GUI_Name_Back.png" id="1_3gg2t"]
+[ext_resource type="Script" path="res://script/ui/Skill.gd" id="1_ityu2"]
+[ext_resource type="Texture2D" uid="uid://bxrbfyutxbsm5" path="res://assets/texture/ui/GUI/GUI_Skills_Rim.png" id="3_2ecay"]
+[ext_resource type="Texture2D" uid="uid://xx6x6qh74ha8" path="res://assets/texture/ui/elements/fire.png" id="3_ibupe"]
+
+[node name="Skill" type="Control"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 9.0
+offset_right = 352.0
+offset_bottom = 41.0
+script = ExtResource("1_ityu2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 337.0
+offset_bottom = 57.0
+texture = ExtResource("1_3gg2t")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 337.0
+offset_bottom = 57.0
+texture = ExtResource("3_2ecay")
+patch_margin_left = 9
+patch_margin_top = 5
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Type" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 49.0
+offset_bottom = 46.0
+texture = ExtResource("3_ibupe")
+expand_mode = 1
+
+[node name="Move_Name" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 337.0
+offset_bottom = 56.0
+text = "[Move_Name]"
+flat = true

@@ -1,0 +1,381 @@
+[gd_scene load_steps=13 format=3 uid="uid://kqe36peiwh5h"]
+
+[ext_resource type="Script" path="res://script/battle/BattleScene.gd" id="1_r142q"]
+[ext_resource type="PackedScene" uid="uid://bawsb8id7ept4" path="res://scene/battle/BaseDialog.tscn" id="4_dqh5p"]
+[ext_resource type="Texture2D" uid="uid://dst8mxgpqge6y" path="res://assets/texture/base.png" id="5_l2ek6"]
+[ext_resource type="Texture2D" uid="uid://rbtg02d3rfug" path="res://assets/texture/ui/health_bar.png" id="6_kf46b"]
+[ext_resource type="Texture2D" uid="uid://buufbxggrhsvv" path="res://assets/texture/ui/square_1.png" id="6_twbnw"]
+[ext_resource type="AudioStream" uid="uid://cu3hgj5a4t3" path="res://assets/musics/battle.mp3" id="7_6fxsk"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="7_nb27a"]
+[ext_resource type="Texture2D" uid="uid://cqyp5aksqgvlr" path="res://assets/texture/ui/mana_bar.png" id="7_v7wb2"]
+[ext_resource type="Texture2D" uid="uid://b126xjdf74mep" path="res://assets/texture/ui/square_2.png" id="8_o2u76"]
+[ext_resource type="AudioStream" uid="uid://bya35o240dy7g" path="res://assets/sounds/death.mp3" id="10_bqbuk"]
+[ext_resource type="Texture2D" uid="uid://dokdrfxtwvvk3" path="res://assets/texture/ui/menuframe.png" id="10_dmbpi"]
+[ext_resource type="PackedScene" uid="uid://dkfvt0cn1ivj7" path="res://scene/battle/EscapeBattle.tscn" id="12_t3ba6"]
+
+[node name="BattleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r142q")
+
+[node name="Fond" type="ColorRect" parent="."]
+z_index = -4096
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.858824, 0.831373, 0.921569, 1)
+
+[node name="Player" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 317.0
+offset_right = 288.0
+offset_bottom = 352.0
+expand_mode = 1
+
+[node name="BaseDialog" parent="." instance=ExtResource("4_dqh5p")]
+layout_mode = 1
+offset_top = 475.0
+offset_bottom = 475.0
+
+[node name="Type" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 70.0
+offset_right = 91.0
+offset_bottom = 102.0
+expand_mode = 1
+
+[node name="BaseEnemy" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 152.0
+offset_right = 1055.0
+offset_bottom = 331.0
+texture = ExtResource("5_l2ek6")
+
+[node name="Base" type="TextureRect" parent="."]
+z_index = -4096
+layout_mode = 0
+offset_left = 6.0
+offset_top = 309.0
+offset_right = 519.0
+offset_bottom = 582.0
+texture = ExtResource("5_l2ek6")
+
+[node name="PlayerInfoBox" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = 570.0
+offset_top = 312.0
+offset_right = 1098.0
+offset_bottom = 451.0
+texture = ExtResource("6_twbnw")
+
+[node name="Player_name" type="Label" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 9.0
+offset_right = 334.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "[Player_name]"
+uppercase = true
+
+[node name="Player_lvl" type="Label" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 8.0
+offset_right = 653.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "[Player_lvl]"
+
+[node name="black_background" type="ColorRect" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 54.0
+offset_right = 418.0
+offset_bottom = 77.0
+color = Color(0, 0, 0, 1)
+
+[node name="black_background2" type="ColorRect" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 99.0
+offset_right = 418.0
+offset_bottom = 120.0
+color = Color(0, 0, 0, 1)
+
+[node name="health_bar" type="TextureProgressBar" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 54.0
+offset_right = 418.0
+offset_bottom = 77.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("6_kf46b")
+
+[node name="PV" type="Label" parent="PlayerInfoBox/health_bar"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = -6.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "PV:"
+uppercase = true
+
+[node name="PV_Amount" type="Label" parent="PlayerInfoBox/health_bar"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 303.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="mana_bar" type="TextureProgressBar" parent="PlayerInfoBox"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 99.0
+offset_right = 418.0
+offset_bottom = 120.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("7_v7wb2")
+
+[node name="MANA" type="Label" parent="PlayerInfoBox/mana_bar"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "MN:"
+uppercase = true
+
+[node name="MANA_Amount" type="Label" parent="PlayerInfoBox/mana_bar"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = -3.0
+offset_right = 304.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="DMG_Amount" type="Label" parent="PlayerInfoBox"]
+visible = false
+layout_mode = 0
+offset_left = -241.0
+offset_top = -55.0
+offset_right = -183.0
+offset_bottom = -29.0
+theme_override_colors/font_color = Color(0.831373, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 25
+text = "[DMG]"
+
+[node name="EnemyInfoBox" type="TextureRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_left = 49.0
+offset_top = 62.0
+offset_right = 574.0
+offset_bottom = 176.0
+texture = ExtResource("8_o2u76")
+
+[node name="Mob_name" type="Label" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 12.0
+offset_right = 193.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "[Mob_name]"
+uppercase = true
+
+[node name="Mob_lvl" type="Label" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 9.0
+offset_right = 540.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "[Mob_lvl]"
+
+[node name="black_background" type="ColorRect" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 65.0
+offset_right = 304.0
+offset_bottom = 88.0
+color = Color(0, 0, 0, 1)
+
+[node name="health_bar" type="TextureProgressBar" parent="EnemyInfoBox"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 65.0
+offset_right = 304.0
+offset_bottom = 88.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("6_kf46b")
+
+[node name="PV" type="Label" parent="EnemyInfoBox/health_bar"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = -6.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "PV:"
+uppercase = true
+
+[node name="PV_Amount" type="Label" parent="EnemyInfoBox/health_bar"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 303.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="DMG_Amount" type="Label" parent="EnemyInfoBox"]
+visible = false
+layout_mode = 0
+offset_left = 939.0
+offset_top = 57.0
+offset_right = 997.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0.831373, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 25
+text = "[DMG]"
+
+[node name="Crited" type="Label" parent="EnemyInfoBox"]
+visible = false
+layout_mode = 0
+offset_left = 939.0
+offset_top = 95.0
+offset_right = 1007.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(0.831373, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 25
+text = "Crit"
+
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6fxsk")
+volume_db = -11.255
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_bqbuk")
+
+[node name="death_label" type="Label" parent="."]
+z_index = 101
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -33.0
+offset_right = 83.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.501961, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 14
+
+[node name="enemy_chosing" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 478.0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("10_dmbpi")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="chosing_dialog" type="Label" parent="enemy_chosing"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 203.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 32
+text = "What should you do ?"
+
+[node name="enemy_choose" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 478.0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("10_dmbpi")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="choose_dialog" type="Label" parent="enemy_choose"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 203.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_nb27a")
+theme_override_font_sizes/font_size = 32
+text = "[Monster_name] used [Move]"
+
+[node name="EscapeBattle" parent="." instance=ExtResource("12_t3ba6")]
+visible = false
+layout_mode = 1

@@ -1,0 +1,170 @@
+[gd_scene load_steps=8 format=3 uid="uid://bftp7y1loxh2"]
+
+[ext_resource type="Script" path="res://script/battle/MoveBattle.gd" id="1_8catq"]
+[ext_resource type="Texture2D" uid="uid://dokdrfxtwvvk3" path="res://assets/texture/ui/menuframe.png" id="2_u4ivv"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="3_o3fmx"]
+[ext_resource type="Texture2D" uid="uid://dkyfr02mvq6kw" path="res://assets/texture/ui/arrChoice.png" id="4_73bu4"]
+[ext_resource type="Script" path="res://script/battle/BattleScene.gd" id="5_g5ujq"]
+[ext_resource type="Texture2D" uid="uid://cti7y1504yiax" path="res://assets/texture/ui/GUI/Symbols/Mana.png" id="6_4hx4d"]
+[ext_resource type="AudioStream" uid="uid://7e7yunqo1a50" path="res://assets/sounds/Newblip.MP3" id="7_payqs"]
+
+[node name="MoveBattle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8catq")
+
+[node name="MovesDialog" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 717.0
+offset_bottom = 172.0
+texture = ExtResource("2_u4ivv")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Move0" type="Label" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 30.0
+offset_right = 164.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o3fmx")
+theme_override_font_sizes/font_size = 24
+text = "---"
+uppercase = true
+
+[node name="Move1" type="Label" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 100.0
+offset_right = 164.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o3fmx")
+theme_override_font_sizes/font_size = 24
+text = "---"
+uppercase = true
+
+[node name="Move2" type="Label" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 30.0
+offset_right = 494.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o3fmx")
+theme_override_font_sizes/font_size = 24
+text = "---"
+uppercase = true
+
+[node name="Move3" type="Label" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 100.0
+offset_right = 494.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o3fmx")
+theme_override_font_sizes/font_size = 24
+text = "---"
+uppercase = true
+
+[node name="Arrow" type="TextureRect" parent="MovesDialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.077
+anchor_bottom = 0.195
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -5.132
+offset_bottom = 36.045
+texture = ExtResource("4_73bu4")
+stretch_mode = 4
+
+[node name="Type0" type="TextureRect" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 30.0
+offset_right = 100.0
+offset_bottom = 62.0
+expand_mode = 1
+
+[node name="Type1" type="TextureRect" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 132.0
+expand_mode = 1
+
+[node name="Type2" type="TextureRect" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 30.0
+offset_right = 425.0
+offset_bottom = 62.0
+expand_mode = 1
+
+[node name="Type3" type="TextureRect" parent="MovesDialog"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 100.0
+offset_right = 425.0
+offset_bottom = 132.0
+expand_mode = 1
+
+[node name="InfoBox" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 4.0
+offset_right = 1148.0
+offset_bottom = 173.0
+texture = ExtResource("2_u4ivv")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("5_g5ujq")
+
+[node name="PP" type="Label" parent="InfoBox"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 26.0
+offset_right = 200.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o3fmx")
+theme_override_font_sizes/font_size = 26
+text = "PP: --/--"
+uppercase = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 93.0
+offset_right = 792.0
+offset_bottom = 133.0
+texture = ExtResource("6_4hx4d")
+
+[node name="ManaCost" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 4.0
+offset_right = 99.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o3fmx")
+theme_override_font_sizes/font_size = 26
+text = "--"
+
+[node name="Blip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_payqs")

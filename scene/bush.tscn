@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b631lekwl1u3y"]
+
+[ext_resource type="Texture2D" uid="uid://duledchf4717t" path="res://assets/texture/bush.png" id="1_ivetj"]
+[ext_resource type="Script" path="res://script/bush.gd" id="1_v6jlt"]
+[ext_resource type="PackedScene" uid="uid://cuc4vjpq4bkgk" path="res://scene/ui/transitions/white_transition.tscn" id="3_8ahla"]
+[ext_resource type="AudioStream" uid="uid://c4poic8pxhjnk" path="res://assets/sounds/transition.wav" id="4_a8rmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es7xq"]
+size = Vector2(20, 18)
+
+[node name="Bush" type="Node2D"]
+light_mask = 513
+visibility_layer = 512
+y_sort_enabled = true
+script = ExtResource("1_v6jlt")
+
+[node name="Bush" type="Sprite2D" parent="."]
+texture = ExtResource("1_ivetj")
+centered = false
+
+[node name="transition" parent="." instance=ExtResource("3_8ahla")]
+visible = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, 17)
+shape = SubResource("RectangleShape2D_es7xq")
+
+[node name="transitionMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a8rmd")
+volume_db = -11.255
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

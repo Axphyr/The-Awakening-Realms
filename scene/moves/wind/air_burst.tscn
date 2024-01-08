@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://fw5dx66n85vo"]
+
+[ext_resource type="Texture2D" uid="uid://cllo2tic2sfjb" path="res://assets/texture/moves/WIND/Air Burst.png" id="1_h0m5u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3gmv"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bujm"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_631ni"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4030"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65g4h"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wukxd"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if575"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vogiq"]
+atlas = ExtResource("1_h0m5u")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6qt2"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_t3gmv")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_1bujm")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_631ni")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_e4030")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_65g4h")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_wukxd")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_if575")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vogiq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="air_burst" type="AnimatedSprite2D"]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_p6qt2")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

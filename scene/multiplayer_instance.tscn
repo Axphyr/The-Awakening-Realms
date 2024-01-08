@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbx055pdfcsb"]
+
+[ext_resource type="Texture2D" uid="uid://barkf5tiwomaf" path="res://assets/texture/entity/BattlePlayer.png" id="1_ptwf7"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="2_p17rv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -48.2778)
+scale = Vector2(1.38889, 1.38889)
+texture = ExtResource("1_ptwf7")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -56.0
+offset_top = -9.0
+offset_right = 58.0
+offset_bottom = 22.0
+text = "Preparing..."
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -112.0
+offset_right = 20.0
+offset_bottom = -89.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_p17rv")
+horizontal_alignment = 1
+vertical_alignment = 1

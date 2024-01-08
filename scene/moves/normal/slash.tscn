@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bp0l6sbctcwmd"]
+
+[ext_resource type="Texture2D" uid="uid://b432nw0xcmnd8" path="res://assets/texture/moves/NORMAL/slash.png" id="1_1153k"]
+[ext_resource type="Texture2D" uid="uid://cht6biqdr6in3" path="res://assets/texture/moves/NORMAL/slash_hit.png" id="2_lrbqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aovn"]
+atlas = ExtResource("1_1153k")
+region = Rect2(37, 0, 37, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rtl8"]
+atlas = ExtResource("1_1153k")
+region = Rect2(74, 0, 37, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up2b7"]
+atlas = ExtResource("1_1153k")
+region = Rect2(111, 0, 37, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ana3"]
+atlas = ExtResource("1_1153k")
+region = Rect2(148, 0, 37, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j30a"]
+atlas = ExtResource("2_lrbqs")
+region = Rect2(0, 0, 43, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytkvb"]
+atlas = ExtResource("2_lrbqs")
+region = Rect2(43, 0, 43, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry814"]
+atlas = ExtResource("2_lrbqs")
+region = Rect2(86, 0, 43, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv1dm"]
+atlas = ExtResource("2_lrbqs")
+region = Rect2(129, 0, 43, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5ojk"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4aovn")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6rtl8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_up2b7")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7ana3")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1j30a")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ytkvb")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ry814")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_wv1dm")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="slash" type="AnimatedSprite2D"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_o5ojk")
+autoplay = "default"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2sqskjdpn8ot"]
+
+[ext_resource type="Texture2D" uid="uid://c0s0x1li0if1s" path="res://assets/texture/ui/fan.png" id="1_ueass"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="2_jtrsv"]
+
+[node name="AreaNotification" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 988.0
+offset_top = 25.0
+offset_right = 1122.0
+offset_bottom = 65.0
+texture = ExtResource("1_ueass")
+patch_margin_left = 24
+patch_margin_top = 4
+patch_margin_right = 28
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 19.0
+offset_right = 118.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jtrsv")
+text = "Jean"
+horizontal_alignment = 1
+vertical_alignment = 1

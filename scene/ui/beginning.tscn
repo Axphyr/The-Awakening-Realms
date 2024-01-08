@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://7x0ub87dvaa5"]
+
+[ext_resource type="Script" path="res://script/ui/beginning.gd" id="1_4fm4i"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="2_lfnva"]
+[ext_resource type="Texture2D" uid="uid://dcsd5eftcxm1a" path="res://assets/texture/Clouds 5/1.png" id="3_eu2pp"]
+[ext_resource type="Texture2D" uid="uid://bnamyyoielins" path="res://assets/texture/Clouds 5/2.png" id="4_brngy"]
+[ext_resource type="Texture2D" uid="uid://klecj5wpihuy" path="res://assets/texture/Clouds 5/3.png" id="5_737i4"]
+
+[sub_resource type="Animation" id="Animation_083ru"]
+resource_name = "Scroll"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-400, 350), Vector2(-400, -1200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kfoe6"]
+_data = {
+"Scroll": SubResource("Animation_083ru")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4fm4i")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576.889, 323.5)
+scale = Vector2(2.00309, 2.00309)
+texture = ExtResource("3_eu2pp")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(575.5, 324)
+scale = Vector2(1.98785, 1.98148)
+texture = ExtResource("4_brngy")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(576.25, 317)
+scale = Vector2(2.00955, 1.9321)
+texture = ExtResource("5_737i4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 316)
+
+[node name="Label" type="Label" parent="Camera2D"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -1200.0
+offset_right = 426.0
+offset_bottom = -212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.278431)
+theme_override_fonts/font = ExtResource("2_lfnva")
+text = "In the mystical land of Eldoria, a once-thriving kingdom now stands on the brink of chaos. The dark forces of the malevolent sorcerer Malgrim have cast a shadow over the realm, plunging it into an age of despair and uncertainty. As the people suffer under his oppressive rule, whispers of a prophecy emerge, foretelling the arrival of a hero who will rise to challenge the darkness and restore balance to Eldoria.
+
+
+
+You step into the shoes of a humble adventurer, drawn into the epic quest to thwart Malgrim's sinister plans. The journey begins in the quaint village of Oakhaven, where strange occurrences have become a common sight. Villagers speak of mysterious disappearances, eerie sightings in the nearby woods, and the growing influence of dark magic.
+
+
+
+Armed with a basic weapon and clad in simple armor, you embark on a quest that will take you through dense forests, treacherous mountains, and ancient ruins. Along the way, they will encounter a diverse cast of characters, including wise sages, cunning rogues, and fellow warriors who share a common goal.
+
+
+
+The world is rich with lore, featuring mythical creatures, forgotten legends, and ancient magic waiting to be discovered. From bustling towns to haunted dungeons, the landscapes are diverse, each with its own challenges and opportunities.
+
+
+
+The fate of Eldoria rests in your hands. Will you become the hero foretold in the prophecy and bring an end to the reign of shadows, or will Malgrim's darkness consume the realm forever? Only through strategic decisions, valorous deeds, and unwavering determination can the adventurer hope to emerge victorious in the Realm of Shadows."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_kfoe6")
+}
+
+[node name="Label2" type="Label" parent="Camera2D"]
+offset_left = -569.0
+offset_top = 299.0
+offset_right = -363.0
+offset_bottom = 324.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.14902)
+theme_override_fonts/font = ExtResource("2_lfnva")
+theme_override_font_sizes/font_size = 0
+text = "Press [ENTER] to skip"

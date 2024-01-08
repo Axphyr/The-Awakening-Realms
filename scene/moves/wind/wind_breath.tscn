@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://j6rl42ft0qpl"]
+
+[ext_resource type="Texture2D" uid="uid://7mtdcvks5ybt" path="res://assets/texture/moves/WIND/Wind Breath.png" id="1_cesij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3rib"]
+atlas = ExtResource("1_cesij")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7veq2"]
+atlas = ExtResource("1_cesij")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxroc"]
+atlas = ExtResource("1_cesij")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glmcq"]
+atlas = ExtResource("1_cesij")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oclnn"]
+atlas = ExtResource("1_cesij")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq6b5"]
+atlas = ExtResource("1_cesij")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1k64"]
+atlas = ExtResource("1_cesij")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpe06"]
+atlas = ExtResource("1_cesij")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kj3i"]
+atlas = ExtResource("1_cesij")
+region = Rect2(384, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njmfd"]
+atlas = ExtResource("1_cesij")
+region = Rect2(432, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi4sq"]
+atlas = ExtResource("1_cesij")
+region = Rect2(480, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6mfw"]
+atlas = ExtResource("1_cesij")
+region = Rect2(528, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6qt2"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_p3rib")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7veq2")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_bxroc")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_glmcq")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_oclnn")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_dq6b5")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_g1k64")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_xpe06")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_8kj3i")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_njmfd")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_oi4sq")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_q6mfw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="wind_breath" type="AnimatedSprite2D"]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_p6qt2")
+autoplay = "default"
+frame = 11
+frame_progress = 1.0

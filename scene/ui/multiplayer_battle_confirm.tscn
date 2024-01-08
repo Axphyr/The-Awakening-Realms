@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=3 uid="uid://b34k51rvuufhd"]
+
+[ext_resource type="Script" path="res://script/ui/multiplayer_battle_confirm.gd" id="1_ahalm"]
+[ext_resource type="Texture2D" uid="uid://bwhblxywriqfr" path="res://assets/texture/ui/GUI/GUI_Back_2.png" id="2_7hg1j"]
+[ext_resource type="Texture2D" uid="uid://2s1e4sctf2cf" path="res://assets/texture/ui/GUI/GUI_Name_Rim.png" id="3_64ddf"]
+[ext_resource type="Texture2D" uid="uid://rbtg02d3rfug" path="res://assets/texture/ui/health_bar.png" id="4_bdutc"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="5_d8tpb"]
+[ext_resource type="Texture2D" uid="uid://41otmtd2xqud" path="res://assets/texture/ui/button.png" id="5_iwc8o"]
+
+[sub_resource type="Theme" id="Theme_fmwxk"]
+default_font = ExtResource("5_d8tpb")
+default_font_size = 23
+
+[node name="battle_confirm" type="CanvasLayer"]
+scale = Vector2(0.85, 0.85)
+transform = Transform2D(0.85, 0, 0, 0.85, 0, 0)
+script = ExtResource("1_ahalm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1356.0
+offset_bottom = 764.0
+color = Color(0, 0, 0, 0.313726)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 362.353
+offset_top = 215.294
+offset_right = 982.353
+offset_bottom = 567.294
+texture = ExtResource("2_7hg1j")
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.378
+anchor_right = 0.5
+anchor_bottom = 0.378
+offset_left = -209.0
+offset_top = -40.409
+offset_right = 209.0
+offset_bottom = 41.591
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d8tpb")
+theme_override_font_sizes/font_size = 27
+text = "The player [Player_name] 
+challenges you to a battle."
+
+[node name="Accept" type="Button" parent="NinePatchRect"]
+z_index = 3
+layout_mode = 0
+offset_left = 305.882
+offset_top = 214.118
+offset_right = 532.882
+offset_bottom = 270.118
+focus_mode = 0
+theme = SubResource("Theme_fmwxk")
+text = "ACCEPT
+"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="NinePatchRect"]
+z_index = 2
+layout_mode = 0
+offset_left = 306.882
+offset_top = 215.118
+offset_right = 533.882
+offset_bottom = 271.118
+texture = ExtResource("4_bdutc")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+
+[node name="Reject" type="Button" parent="NinePatchRect"]
+z_index = 3
+layout_mode = 0
+offset_left = 61.1763
+offset_top = 214.118
+offset_right = 288.176
+offset_bottom = 270.118
+focus_mode = 0
+theme = SubResource("Theme_fmwxk")
+text = "REJECT"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="NinePatchRect"]
+z_index = 2
+layout_mode = 0
+offset_left = 62.1765
+offset_top = 215.118
+offset_right = 289.176
+offset_bottom = 271.118
+texture = ExtResource("5_iwc8o")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+offset_left = 362.353
+offset_top = 215.294
+offset_right = 982.353
+offset_bottom = 567.294
+texture = ExtResource("3_64ddf")
+patch_margin_left = 13
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 13
+
+[connection signal="pressed" from="NinePatchRect/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="NinePatchRect/Reject" to="." method="_on_reject_pressed"]

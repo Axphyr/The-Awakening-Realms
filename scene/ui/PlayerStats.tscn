@@ -1,0 +1,583 @@
+[gd_scene load_steps=17 format=3 uid="uid://cp1o7vkd7x677"]
+
+[ext_resource type="Texture2D" uid="uid://bwhblxywriqfr" path="res://assets/texture/ui/GUI/GUI_Back_2.png" id="1_lauc4"]
+[ext_resource type="Script" path="res://script/ui/PlayerStats.gd" id="1_v4b1r"]
+[ext_resource type="Texture2D" uid="uid://bvst038m4wf8f" path="res://assets/texture/ui/GUI/GUI_Rims.png" id="2_x1au4"]
+[ext_resource type="Texture2D" uid="uid://rbtg02d3rfug" path="res://assets/texture/ui/health_bar.png" id="4_2toix"]
+[ext_resource type="Texture2D" uid="uid://c5nl6htroc72u" path="res://assets/texture/ui/GUI/GUI_Profile_Below.png" id="4_e07np"]
+[ext_resource type="Texture2D" uid="uid://c3nsk3mjyhpfu" path="res://assets/texture/ui/GUI/GUI_Name_Back.png" id="5_ko4v4"]
+[ext_resource type="Texture2D" uid="uid://2s1e4sctf2cf" path="res://assets/texture/ui/GUI/GUI_Name_Rim.png" id="6_mgr82"]
+[ext_resource type="Texture2D" uid="uid://cqyp5aksqgvlr" path="res://assets/texture/ui/mana_bar.png" id="6_xbhid"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="7_i2is8"]
+[ext_resource type="PackedScene" uid="uid://6g1fq3peary" path="res://scene/entity/BattlePlayer.tscn" id="8_gnvyn"]
+[ext_resource type="Texture2D" uid="uid://41otmtd2xqud" path="res://assets/texture/ui/button.png" id="9_dhp8k"]
+[ext_resource type="Texture2D" uid="uid://bpm3sny38i8cd" path="res://assets/texture/ui/GUI/Symbols/Health.png" id="9_j05hq"]
+[ext_resource type="Texture2D" uid="uid://cydmu6x6fnrw0" path="res://assets/texture/ui/GUI/Symbols/Strength.png" id="10_s03cf"]
+[ext_resource type="Texture2D" uid="uid://bersjwb2lcmes" path="res://assets/texture/ui/GUI/Symbols/Defense.png" id="11_m3snw"]
+[ext_resource type="Texture2D" uid="uid://cti7y1504yiax" path="res://assets/texture/ui/GUI/Symbols/Mana.png" id="12_miixd"]
+[ext_resource type="Texture2D" uid="uid://cutqsmcadlw0m" path="res://assets/texture/ui/GUI/Symbols/Luck.png" id="13_fhr1a"]
+
+[node name="PlayerStats" type="CanvasLayer"]
+script = ExtResource("1_v4b1r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 207.0
+offset_top = 130.0
+offset_right = 927.0
+offset_bottom = 535.0
+texture = ExtResource("1_lauc4")
+patch_margin_left = 16
+patch_margin_top = 12
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+offset_left = 207.0
+offset_top = 130.0
+offset_right = 927.0
+offset_bottom = 535.0
+texture = ExtResource("2_x1au4")
+patch_margin_left = 60
+patch_margin_top = 65
+patch_margin_right = 63
+patch_margin_bottom = 54
+
+[node name="bars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 169.0
+offset_top = 192.0
+offset_right = 209.0
+offset_bottom = 232.0
+scale = Vector2(0.7, 0.7)
+
+[node name="black_background" type="ColorRect" parent="bars"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 54.0
+offset_right = 418.0
+offset_bottom = 77.0
+color = Color(0, 0, 0, 1)
+
+[node name="black_background2" type="ColorRect" parent="bars"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 99.0
+offset_right = 418.0
+offset_bottom = 120.0
+color = Color(0, 0, 0, 1)
+
+[node name="health_bar" type="TextureProgressBar" parent="bars"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 54.0
+offset_right = 418.0
+offset_bottom = 77.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("4_2toix")
+
+[node name="PV" type="Label" parent="bars/health_bar"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = -6.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 18
+text = "PV:"
+uppercase = true
+
+[node name="PV_Amount" type="Label" parent="bars/health_bar"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 303.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="mana_bar" type="TextureProgressBar" parent="bars"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 99.0
+offset_right = 418.0
+offset_bottom = 120.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+texture_progress = ExtResource("6_xbhid")
+
+[node name="MANA" type="Label" parent="bars/mana_bar"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 18
+text = "MN:"
+uppercase = true
+
+[node name="MANA_Amount" type="Label" parent="bars/mana_bar"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = -3.0
+offset_right = 304.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 18
+text = "--/--"
+uppercase = true
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="."]
+offset_left = 297.0
+offset_top = 474.0
+offset_right = 1022.0
+offset_bottom = 624.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_e07np")
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="."]
+offset_left = 281.0
+offset_top = 172.0
+offset_right = 1006.0
+offset_bottom = 322.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_ko4v4")
+patch_margin_left = 3
+patch_margin_right = 4
+patch_margin_bottom = 2
+
+[node name="NinePatchRect7" type="NinePatchRect" parent="."]
+offset_left = 825.0
+offset_top = 156.0
+offset_right = 1173.0
+offset_bottom = 316.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_dhp8k")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="Reset" type="Button" parent="NinePatchRect7"]
+layout_mode = 0
+offset_right = 348.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 60
+text = "Reset"
+
+[node name="NinePatchRect6" type="NinePatchRect" parent="."]
+offset_left = 281.0
+offset_top = 172.0
+offset_right = 1006.0
+offset_bottom = 322.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_mgr82")
+patch_margin_left = 12
+patch_margin_top = 5
+patch_margin_right = 12
+patch_margin_bottom = 5
+
+[node name="Player_Name" type="Label" parent="NinePatchRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -13.0
+offset_right = 70.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.917647, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 60
+text = "[Player_Name]"
+
+[node name="Player_Lvl" type="Label" parent="NinePatchRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 401.0
+offset_top = -43.0
+offset_right = 935.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 60
+text = "Lv.[Player_Lvl]"
+
+[node name="BattlePlayer" parent="." instance=ExtResource("8_gnvyn")]
+position = Vector2(370, 358)
+scale = Vector2(0.7, 0.7)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 57.0
+offset_bottom = 52.0
+
+[node name="Health" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 189.0
+offset_right = 629.0
+offset_bottom = 229.0
+texture = ExtResource("9_j05hq")
+
+[node name="Label3" type="Label" parent="Control/Health"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -12.0
+offset_right = 180.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "HP :"
+
+[node name="HP_Value" type="Label" parent="Control/Health"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -12.0
+offset_right = 272.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "[HP_Value]"
+
+[node name="Button_Health" type="Button" parent="Control/Health"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 1.0
+offset_right = 222.0
+offset_bottom = 40.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 22
+text = "+"
+flat = true
+
+[node name="Strength" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 240.0
+offset_right = 629.0
+offset_bottom = 280.0
+texture = ExtResource("10_s03cf")
+
+[node name="Label4" type="Label" parent="Control/Strength"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -11.0
+offset_right = 180.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "STR : "
+
+[node name="STR_Value" type="Label" parent="Control/Strength"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -11.0
+offset_right = 272.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "[STR_Value]"
+
+[node name="Button_Strength" type="Button" parent="Control/Strength"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 4.0
+offset_right = 222.0
+offset_bottom = 43.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 22
+text = "+"
+flat = true
+
+[node name="Defense" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 290.0
+offset_right = 629.0
+offset_bottom = 330.0
+texture = ExtResource("11_m3snw")
+
+[node name="Label5" type="Label" parent="Control/Defense"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -15.0
+offset_right = 180.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "DEF : "
+
+[node name="DEF_Value" type="Label" parent="Control/Defense"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -15.0
+offset_right = 272.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "[DEF_Value]"
+
+[node name="Button_Defense" type="Button" parent="Control/Defense"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 222.0
+offset_bottom = 39.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 22
+text = "+"
+flat = true
+
+[node name="Mana" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 340.0
+offset_right = 629.0
+offset_bottom = 380.0
+texture = ExtResource("12_miixd")
+
+[node name="Label6" type="Label" parent="Control/Mana"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -15.0
+offset_right = 180.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "MN : "
+
+[node name="MN_Value" type="Label" parent="Control/Mana"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -15.0
+offset_right = 272.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "[MN_Value]"
+
+[node name="ButtonMana" type="Button" parent="Control/Mana"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 222.0
+offset_bottom = 39.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 22
+text = "+"
+flat = true
+
+[node name="Luck" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 395.0
+offset_right = 629.0
+offset_bottom = 435.0
+texture = ExtResource("13_fhr1a")
+
+[node name="Label7" type="Label" parent="Control/Luck"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -12.0
+offset_right = 180.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "LUCK : "
+
+[node name="LUCK_Value" type="Label" parent="Control/Luck"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -12.0
+offset_right = 272.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "[LUCK_Value]"
+
+[node name="Button_Luck" type="Button" parent="Control/Luck"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 222.0
+offset_bottom = 39.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 22
+text = "+"
+flat = true
+
+[node name="Label8" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 569.0
+offset_top = 454.0
+offset_right = 788.0
+offset_bottom = 482.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "Unassigned Points : "
+
+[node name="UA_Points" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 779.0
+offset_top = 454.0
+offset_right = 998.0
+offset_bottom = 482.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+theme_override_font_sizes/font_size = 17
+text = "[UA_Points]"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 147.0
+offset_right = 704.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0, 0.12549, 0, 1)
+theme_override_fonts/font = ExtResource("7_i2is8")
+text = "Add points :"
+
+[node name="add_points" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 140.0
+offset_right = 793.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("7_i2is8")
+text = "1"
+
+[connection signal="pressed" from="NinePatchRect7/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Control/Health/Button_Health" to="." method="_on_button_health_pressed"]
+[connection signal="pressed" from="Control/Strength/Button_Strength" to="." method="_on_button_strength_pressed"]
+[connection signal="pressed" from="Control/Defense/Button_Defense" to="." method="_on_button_defense_pressed"]
+[connection signal="pressed" from="Control/Mana/ButtonMana" to="." method="_on_button_mana_pressed"]
+[connection signal="pressed" from="Control/Luck/Button_Luck" to="." method="_on_button_luck_pressed"]

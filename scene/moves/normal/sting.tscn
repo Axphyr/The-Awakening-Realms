@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://ceni5snvo4e75"]
+
+[ext_resource type="Texture2D" uid="uid://bcfxds75djfo8" path="res://assets/texture/moves/NORMAL/sting.png" id="1_3hcui"]
+[ext_resource type="Texture2D" uid="uid://dpx6hvvdqn8b3" path="res://assets/texture/moves/NORMAL/sting_hit.png" id="2_axiio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33xxi"]
+atlas = ExtResource("1_3hcui")
+region = Rect2(1, 0, 70, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8huan"]
+atlas = ExtResource("1_3hcui")
+region = Rect2(97, 0, 70, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hj1c"]
+atlas = ExtResource("1_3hcui")
+region = Rect2(191, 0, 70, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfjtf"]
+atlas = ExtResource("1_3hcui")
+region = Rect2(280, 0, 70, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otlrk"]
+atlas = ExtResource("2_axiio")
+region = Rect2(0, 0, 26, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d45lc"]
+atlas = ExtResource("2_axiio")
+region = Rect2(26, 0, 26, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3jon"]
+atlas = ExtResource("2_axiio")
+region = Rect2(52, 0, 26, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fgb2"]
+atlas = ExtResource("2_axiio")
+region = Rect2(78, 0, 26, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odnc3"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_33xxi")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8huan")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1hj1c")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_rfjtf")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_otlrk")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_d45lc")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_l3jon")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6fgb2")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sting" type="AnimatedSprite2D"]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_odnc3")
+autoplay = "default"
+frame = 9
+frame_progress = 1.0

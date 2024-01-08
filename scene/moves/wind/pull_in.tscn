@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8pdvp51vi7u5"]
+
+[ext_resource type="Texture2D" uid="uid://c7vbb5bgjyl1s" path="res://assets/texture/moves/WIND/Pull in.png" id="1_7ydd3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fadm7"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76n3l"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie77k"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnq27"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxkgv"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqoxe"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ar2k"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuuam"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnf1k"]
+atlas = ExtResource("1_7ydd3")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6qt2"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fadm7")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_76n3l")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_ie77k")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_wnq27")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_hxkgv")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_eqoxe")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_6ar2k")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vuuam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnf1k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pull_in" type="AnimatedSprite2D"]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_p6qt2")
+autoplay = "default"
+frame = 8
+frame_progress = 1.0

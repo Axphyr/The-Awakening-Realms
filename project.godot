@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SAE"
+run/main_scene="res://scene/main.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+TextBoxManager="*res://script/manager/TextBoxManager.gd"
+InteractionManager="*res://scene/manager/InteractionManager.tscn"
+AudioManager="*res://scene/manager/AudioManager.tscn"
+MultiplayerManager="*res://script/manager/MultiplayerManager.gd"
+MonstersManager="*res://script/entity/monsters/MonstersManager.gd"
+MultiplayerBattleManager="*res://script/manager/MultiplayerBattleManager.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

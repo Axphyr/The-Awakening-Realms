@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkfvt0cn1ivj7"]
+
+[ext_resource type="Texture2D" uid="uid://dokdrfxtwvvk3" path="res://assets/texture/ui/menuframe.png" id="2_yv256"]
+[ext_resource type="FontFile" uid="uid://bknriqe0rj8sq" path="res://assets/fonts/main_font.ttf" id="3_0juni"]
+
+[node name="EscapeBattle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="escape_dialog" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 478.0
+offset_right = 1149.0
+offset_bottom = 647.0
+texture = ExtResource("2_yv256")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="escape_dialog" type="Label" parent="escape_dialog"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 203.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0juni")
+theme_override_font_sizes/font_size = 32
+text = "You're Trying to Escape..."
+uppercase = true
