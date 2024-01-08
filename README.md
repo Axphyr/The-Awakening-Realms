@@ -1,4 +1,4 @@
-# The Awakenings Realms
+# The Awakening Realms
 Game by JONUZI Arbër & DELOEIL Tristan
 
 This game is a RPG inspired by Zelda and Pokemon. 
